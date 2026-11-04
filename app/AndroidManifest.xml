@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="local.avlfix"
+    android:versionCode="3"
+    android:versionName="3.0">
+
+    <uses-sdk android:minSdkVersion="30" android:targetSdkVersion="30" />
+    <uses-feature android:name="android.software.leanback" android:required="false" />
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+
+    <!-- Sockets need INTERNET; the app only ever connects to the TV itself (127.0.0.1:5555). -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <!-- Lets the Netflix button watcher find and open Netflix. -->
+    <queries>
+        <package android:name="com.netflix.ninja" />
+    </queries>
+
+    <application
+        android:label="@string/app_name"
+        android:allowBackup="false">
+
+        <service android:name=".FixService" android:exported="false" />
+
+        <!-- Opens Netflix when the Bluetooth remote's Netflix button arrives as BUTTON_12. -->
+        <service
+            android:name=".NetflixKeyService"
+            android:label="@string/netflix_service_name"
+            android:exported="true"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/netflix_key_service" />
+        </service>
+
+        <receiver android:name=".BootReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- adb shell am broadcast -a local.avlfix.RUN -n local.avlfix/.RunReceiver -->
+        <receiver android:name=".RunReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="local.avlfix.RUN" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

@@ -1,0 +1,19 @@
+# CANDIDATES - NOT TESTED on this TV. Use the same way as the tested list:
+#   scripts\debloat.ps1 <tv-ip> status --list ...   (or: bash scripts/debloat.sh <tv-ip> status --list debloat/nokia-atv-r2-candidates.txt)
+# Source: the per-model list for the same SCBC "R2" / Realtek RTD285O platform in the cleanyourtv project
+#   https://github.com/Gathin23/cleanyourtv  (examples/compac-atv-r2) - the notes below are paraphrased from it.
+# Try a few at a time, restart the TV, and check the remote, inputs, voice and your apps before adding more.
+# The platform's "inputs", tuner, remote/Bluetooth packages and the launcher helper
+# com.realtek.leanbacklauncher.partnercustomizer (it supplies the Inputs button on the home screen) must stay ON;
+# debloat.ps1 / debloat.sh refuse to disable them.
+
+com.apps.function.gdpr                     # SCBC data-consent agent
+com.apps.channels                          # "S-Channel" content rows (~40 MB while running)
+android.autoinstalls.config.scbc.device    # Play Store auto-install of partner apps
+com.apps.clear                             # "TV Booster" memory cleaner
+com.apps.networkspeed                      # speed-test app
+com.apps.timeclock                         # World Clock
+com.vewd.core.service                      # Vewd app-store / HbbTV core (only matters for broadcast HbbTV)
+com.google.android.apps.nbu.smartconnect.tv  # Smart Connect
+com.google.android.apps.mediashell         # Chromecast built-in (~40-50 MB). Disabling it stops casting to the TV. Keep it if you cast.
+com.google.android.music                   # discontinued Google Play Music app, if it is installed (own observation, not from that list)

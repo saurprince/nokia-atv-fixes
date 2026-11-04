@@ -1,0 +1,11 @@
+# build output and signing keys - never commit these
+app/build/
+app/*.apk
+app/*.idsig
+*.keystore
+*.jks
+dist/
+
+# backups made by scripts/debloat.* list the apps installed on someone's TV - never commit
+tv-backup-*/
+*.log

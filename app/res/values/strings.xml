@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Auto Volume Fix</string>
+    <string name="notification_text">Re-applying Auto Volume after restart</string>
+    <string name="netflix_service_name">Netflix button fix</string>
+    <string name="netflix_service_description">Opens Netflix when the Bluetooth remote\'s Netflix button is pressed (the TV only handles it over infrared). It watches remote key presses only and passes every other key through.</string>
+</resources>

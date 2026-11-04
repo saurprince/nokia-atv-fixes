@@ -1,0 +1,18 @@
+# Nokia Smart TV "ATV R2" (maker SCBC, Android 11, Realtek RTD285O) - apps switched off with
+#   pm disable-user --user 0 <package>      (nothing is uninstalled; "restore" switches them back on)
+# Tested on firmware V8-T851TNF-LF2V287 (checked on 2026-10-20): the TV restarted normally, Netflix and
+# YouTube opened, the Bluetooth remote and voice search worked, and all of these stayed off after a restart.
+# One package per line. Everything after a # is a comment. Read docs/nokia-atv-r2.md before you apply it.
+
+com.google.android.videos                  # Google TV / Play Movies & TV app
+com.google.android.tvrecommendations       # recommendation rows on the home screen
+com.google.android.play.games              # Google Play Games
+com.google.android.backdrop                # "Ambient mode" screensaver - the scripts switch the screensaver to the built-in one first
+com.google.android.youtube.tvmusic         # YouTube Music
+com.google.android.feedback                # Google feedback / bug reporting
+com.google.android.marvin.talkback         # TalkBack screen reader - REMOVE THIS LINE if anyone using the TV needs it
+com.google.android.syncadapters.calendar   # Google Calendar sync adapter
+com.android.printspooler                   # print spooler
+com.apps.wifihotspot                       # vendor Wi-Fi hotspot app
+com.apps.eshow                             # vendor "E-SHOW" app (name suggests a shop-display / demo mode)
+com.apps.esticker                          # vendor "E-Sticker" app (purpose unclear; nothing depended on it)
