@@ -54,16 +54,27 @@ Restart the TV afterwards and check your apps, remote and voice. What each app i
 
 ## 2. Install the Auto Volume and Netflix fixes
 
-Build the app once (Windows; needs the Android SDK and JDK 17+, [details](app/build.ps1)), or use an APK someone you trust built from this source:
+**Easiest: download the ready-made app.** Get `avlfix-v3.0.apk` and `SHA256SUMS.txt` from the
+[latest release](https://github.com/saurprince/nokia-atv-fixes/releases/latest) and check that the file's SHA-256 matches `SHA256SUMS.txt`
+(PowerShell: `Get-FileHash avlfix-v3.0.apk`; Linux/macOS: `sha256sum avlfix-v3.0.apk`). Install it with the script, not by sideloading alone,
+because the helper script must be copied to the TV as well:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\fixes.ps1 192.168.1.20 install -Apk C:\path\to\avlfix-v3.0.apk
+```
+
+```bash
+bash scripts/fixes.sh 192.168.1.20 install --apk path/to/avlfix-v3.0.apk
+```
+
+**Or build it yourself** (Windows; needs the Android SDK and JDK 17+, [details](app/build.ps1)), which is safer if you would rather not run a downloaded file:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File app\build.ps1        # creates app\avlfix.apk and app\avlfix.keystore
 powershell -ExecutionPolicy Bypass -File scripts\fixes.ps1 192.168.1.20 install
 ```
 
-```bash
-bash scripts/fixes.sh 192.168.1.20 install --apk path/to/avlfix.apk
-```
+An app built by you is signed with your own key, so it cannot update the release version (or the other way round): run `fixes ... remove` first when switching.
 
 `install` installs the app, copies the helper script to the TV, turns the Netflix-button watcher on, and runs the Auto Volume fix once.
 **The TV will ask "Allow USB debugging?" for `avlfix@tv`: tick *Always allow* and press OK.**
