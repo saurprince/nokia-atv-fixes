@@ -1,7 +1,10 @@
 # nokia-atv-fixes
 
-Small, reversible fixes for the **Nokia Smart TV "ATV R2"** (Android 11, Realtek RTD285O, made by SCBC).
+Small, reversible fixes for the **Nokia Smart TV "ATV R2"** (Android 11, Realtek RTD285O, made by SCBC), for example the 55-inch 4K model with Onkyo sound.
 TVs on the same platform (for example the Compac and Sanyo "ATV R2") may behave the same, but only the Nokia was tested.
+
+**Is this your TV?** Open Settings > Device Preferences > About. It matches if **Model** says `ATV R2`, **Android TV OS version** is `11`, and **Android TV OS build** is `RTT7.220308.001`
+(the **Netflix ESN** line there starts with `NFANDROID2-PRV-SCBC2019RT51UHDANDROIDTV-SCBC=ATV=R2`). Other builds may differ: check `debloat ... status` before applying anything.
 
 | Fix | What it does |
 |---|---|
@@ -100,7 +103,7 @@ Check at any time with `scripts\fixes.ps1 <ip> status`; remove everything with `
 
 ## What was tested
 
-Real TV: Nokia "ATV R2", Android 11, firmware V8-T851TNF-LF2V287, 2 GB RAM, Bluetooth remote RC860.
+Real TV: Nokia "ATV R2" (55-inch 4K, Onkyo sound), Android 11, Android TV OS build RTT7.220308.001 (security patch 5 June 2022, kernel 4.14.94+), firmware V8-T851TNF-LF2V287, 2 GB RAM, Bluetooth remote RC860.
 
 | Tested | Result |
 |---|---|

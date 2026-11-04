@@ -1,7 +1,8 @@
 # How the fixes work
 
 Tested hardware: Nokia Smart TV, product `ATV R2`, maker SCBC, Realtek `rtd285o`, Android 11 (build `RTT7.220308.001`),
-firmware `V8-T851TNF-LF2V287` (28 July 2022, security patch 2022-06-05). The TV's own update app reported it as the latest version on 2026-10-20.
+firmware `V8-T851TNF-LF2V287` (28 July 2022, security patch 2022-06-05), kernel `4.14.94+` (built 15 February 2023). The TV's own update app reported it as the latest version on 2026-10-20.
+The Settings > About screen shows the same: Model `ATV R2`, Android TV OS version 11, build `RTT7.220308.001`. Netflix identifies the platform as `SCBC2019RT51UHDANDROIDTV`.
 
 ## Auto Volume does nothing after a restart
 
