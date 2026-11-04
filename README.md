@@ -125,5 +125,6 @@ This repository is separate and not affiliated with it; its list for the same SC
 - [docs/how-it-works.md](docs/how-it-works.md): why the two bugs happen and how the fixes work
 - [docs/wifi-notes.md](docs/wifi-notes.md): this TV's Wi-Fi is a 2.4 GHz-only USB module, and why it drops
 - [docs/no-pc-and-usb.md](docs/no-pc-and-usb.md): what a USB stick or a phone can do
+- [docs/launcher-trial.md](docs/launcher-trial.md): an experiment with a different home screen (one TV, one evening; optional)
 
 MIT licensed ([LICENSE](LICENSE)). Not affiliated with or endorsed by Nokia, Google, Netflix, Realtek or SCBC; product names belong to their owners.

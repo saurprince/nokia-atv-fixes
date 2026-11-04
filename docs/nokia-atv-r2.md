@@ -38,6 +38,10 @@ Try a few at a time. `com.google.android.apps.mediashell` is Chromecast built-in
 
 Some projects replace the stock launcher with a lighter one. According to the cleanyourtv notes for this platform, the stock home screen gets its **Inputs** button from
 `com.realtek.leanbacklauncher.partnercustomizer` (that package must stay on), so a replacement launcher has to provide its own inputs entry. This repository does not change the launcher.
+That is about the on-screen button: the remote's physical Input key opens the TV's own source picker (`com.android.tv`) whichever launcher is installed.
+
+The cleanyourtv launcher was later tried on this TV for one evening. [launcher-trial.md](launcher-trial.md) says what worked and what did not (for example, it only became the Home screen after the stock launcher
+was switched off), and how to undo it. It is an experiment, not part of the fixes here.
 
 ## Firmware updates
 
