@@ -8,7 +8,7 @@ TVs on the same platform (for example the Compac and Sanyo "ATV R2") may behave 
 
 | Fix | What it does |
 |---|---|
-| **Auto Volume** | After a restart the sound menu says *Auto Volume: Auto* but the TV does not apply it until it is switched Off and back to Auto. A tiny app does that by itself about 90 seconds after every boot. |
+| **Auto Volume** | After a restart the sound menu says *Auto Volume: Auto* but the TV does not apply it until it is switched Off and back to Auto. A tiny app does that by itself after every boot, once the TV's start-up rush is over (about two minutes after power-on, see [docs/startup-time.md](docs/startup-time.md)). |
 | **Netflix button** | The Bluetooth remote's Netflix button does nothing, because the TV only understands the infrared version of that button. A tiny accessibility service opens Netflix when it sees the Bluetooth button. |
 | **App list** | A tested list of 12 preinstalled apps you can switch off, and a list of untested candidates. Nothing is uninstalled; one command switches everything back on. |
 
@@ -125,6 +125,7 @@ This repository is separate and not affiliated with it; its list for the same SC
 - [docs/how-it-works.md](docs/how-it-works.md): why the two bugs happen and how the fixes work
 - [docs/wifi-notes.md](docs/wifi-notes.md): this TV's Wi-Fi is a 2.4 GHz-only USB module, and why it drops
 - [docs/no-pc-and-usb.md](docs/no-pc-and-usb.md): what a USB stick or a phone can do
+- [docs/startup-time.md](docs/startup-time.md): why this TV takes a while to start, what was measured and what did not help (one TV)
 - [docs/launcher-trial.md](docs/launcher-trial.md): an experiment with a different home screen (one TV, one evening; optional)
 
 MIT licensed ([LICENSE](LICENSE)). Not affiliated with or endorsed by Nokia, Google, Netflix, Realtek or SCBC; product names belong to their owners.

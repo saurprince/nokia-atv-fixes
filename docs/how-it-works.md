@@ -17,7 +17,9 @@ the settings provider, `service list` and the menu app's intents offer no way to
 **The fix.**
 
 1. `BootReceiver` (BOOT_COMPLETED) starts `FixService`, a short-lived foreground service.
-2. It waits until about 90 seconds after boot and until the screen is on.
+2. It waits until at least 90 seconds after boot and until the screen is on. On the tested TV the BOOT_COMPLETED broadcast only reaches the app at about 105 seconds
+   (it is delivered to the apps one after another, and about 30 of them have to start a process first), so that wait is already over by then, and the whole fix finishes about two minutes after power-on.
+   Starting earlier does not help; see [startup-time.md](startup-time.md).
 3. It connects to the TV's own debug port, `127.0.0.1:5555`, with its own RSA key (`avlfix@tv`, approved once on the TV; see `AdbClient.java`)
    and runs `sh /data/local/tmp/avlfix.sh once`.
 4. `device/avlfix.sh` opens the sound menu (`am start -a com.realtek.tv.actionmenu.sound.SoundAdjustAction`), walks to Auto Volume with D-pad key events,
@@ -33,6 +35,8 @@ If it stops after switching to Off it writes a warning to the log so you can che
 - The first version used an accessibility service to click through the menu. The Auto Volume row did not react to accessibility clicks or taps on this TV, so key events over ADB are used.
 - `input keyevent` costs about 1.3 s per call whatever the number of keys, and `uiautomator dump` about 2 s, so the script batches keys and uses `dumpsys activity top`.
 - Triggering on wake from standby was the wrong trigger; only a cold boot loses the effect.
+- Starting the fix earlier than about 100 seconds. While the TV is still starting its apps the same menu run took about 74 s instead of about 25 s and ended at about the same time,
+  so it only keeps the sound panel on screen longer ([startup-time.md](startup-time.md)).
 
 ## The Netflix button over Bluetooth
 

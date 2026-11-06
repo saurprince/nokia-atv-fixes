@@ -9,6 +9,8 @@
 - One app installed: `com.gathin.tvhome` (the launcher), built from its source without code changes (only the build setup was adapted to compile without Gradle).
 - The stock launcher `com.google.android.tvlauncher` switched off by hand (see below why). The `debloat` script in this repository still refuses to do that, on purpose.
 - One theme (`cinematic`, from that project) pushed to the launcher's own folder.
+- The screensaver switched to the launcher's own clock screen (`com.gathin.tvhome/.ClockDream`, a thin clock and date on black; before: the built-in *Colors* screensaver).
+  Undo: `adb shell settings put secure screensaver_components com.android.dreams.basic/.Colors`, and the same for `screensaver_default_component`.
 - Not done: none of the launcher's optional accessibility services was enabled, and no extra permission was granted to it.
 
 ## What we found
@@ -63,6 +65,7 @@ If the new launcher ever failed to start, Home would fall back to the TV's plain
 ## Not tested
 
 The Bluetooth remote's Netflix button after the change (its accessibility service stayed enabled), the voice button, an HDMI source that has a signal, waking from standby, and anything beyond one evening of use.
+How much the clock screensaver costs while it runs was not measured on the TV; from its source it redraws about once a minute and uses no network or pictures.
 
 ## Licences
 
